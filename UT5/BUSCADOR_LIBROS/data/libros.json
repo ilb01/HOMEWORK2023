@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "title": "Harry potter ",
+        "yearRelease": 2010,
+        "price": 70,
+        "writers": [
+            {
+                "name": "Jorge",
+                "surname": "Fernadez",
+                "country": "Japan"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Doraemon",
+        "yearRelease": 1995,
+        "price": 60,
+        "writers": [
+            {
+                "name": "Jorge",
+                "surname": "Fernadez",
+                "country": "Japan"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Stranger things",
+        "yearRelease": 2016,
+        "price": 50,
+        "writers": [
+            {
+                "name": "Jorge",
+                "surname": "Fernadez",
+                "country": "Japan"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Cars",
+        "yearRelease": 2006,
+        "price": 20,
+        "writers": [
+            {
+                "name": "Jorge",
+                "surname": "Fernadez",
+                "country": "Japan"
+            }
+        ]
+    }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Aprilia-ESRZ",
+    "brand": "Aprilia",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "aprilia-ESRZ.webp"
+  },
+  {
+    "id": 2,
+    "title": "Jeep-2xe-adventurer",
+    "brand": "Jeep",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "jeep-2xe-adventurer.webp"
+  },
+  {
+    "id": 3,
+    "title": "Navee-n65",
+    "brand": "Navee",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "navee-n65.webp"
+  },
+  {
+    "id": 4,
+    "title": "Niu-KQI2-pro",
+    "brand": "Niu",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "niu -KQI2-pro.webp"
+  },
+  {
+    "id": 5,
+    "title": "Segway-ninebot-scooter",
+    "brand": "",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "segway-ninebot-scooter.webp"
+  },
+  {
+    "id": 6,
+    "title": "Smart-gyro-rockway",
+    "brand": "",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "smart-gyro-rockway.webp"
+  },
+  {
+    "id": 7,
+    "title": "Xiaomi-electric-scooter",
+    "brand": "Xiaomi",
+    "price": 200,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "xiaomi-electric-scooter.webp"
+  },
+  {
+    "id": 8,
+    "title": "Xiaomi-electric-scooter-3-lite",
+    "brand": "Xiaomi",
+    "price": 340,
+    "priceOffer": 100,
+    "velocity":30,
+    "capacity":2000,
+    "img": "xiaomi-electric-scooter-3-lite.webp"
+  }
+]

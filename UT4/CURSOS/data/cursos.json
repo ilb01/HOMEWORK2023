@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Aprende Cisco Packet Tracer",
+    "teacher": "Toni de Andrés",
+    "price": 200,
+    "priceOffer": 100,
+    "stars": 2,
+    "img": "curso1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Aprende Docker",
+    "teacher": "Bartomeu Vives",
+    "price": 300,
+    "priceOffer": 100,
+    "stars": 4,
+    "img": "curso2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Aprende Ubuntu",
+    "teacher": "Daniel Ferrer",
+    "price": 250,
+    "priceOffer": 100,
+    "stars": 5,
+    "img": "curso3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Aprende HTML",
+    "teacher": "Emilio Valdivia",
+    "price": 275,
+    "priceOffer": 100,
+    "stars": 3,
+    "img": "curso4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Aprende CSS",
+    "teacher": "Emilio Valdivia",
+    "price": 200,
+    "priceOffer": 100,
+    "stars": 3,
+    "img": "curso5.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Aprende JavaScript",
+    "teacher": "Emilio Valdivia",
+    "price": 180,
+    "priceOffer": 100,
+    "stars": 5,
+    "img": "curso6.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Aprende MYSQL",
+    "teacher": "Tomeu Vives",
+    "price": 350,
+    "priceOffer": 100,
+    "stars": 1,
+    "img": "curso7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Aprende Windows Powershell",
+    "teacher": "Daniel Ferrer",
+    "price": 350,
+    "priceOffer": 100,
+    "stars": 3,
+    "img": "curso8.jpg"
+  }
+]

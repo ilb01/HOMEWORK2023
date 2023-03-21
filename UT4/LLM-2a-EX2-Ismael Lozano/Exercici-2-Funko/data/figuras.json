@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Boba Fett",
+        "description": "The best figure",
+        "image": "boba-fett.jpg",
+        "category": "Star Wars",
+        "price": 16.95
+    },
+    {
+        "id": 2,
+        "name": "Chewbacca",
+        "description": "The best figure",
+        "image": "chewbacca.jpg",
+        "category": "Star Wars",
+        "price": 18.95
+    },
+    {
+        "id": 3,
+        "name": "3-CPO",
+        "description": "The best figure",
+        "image": "C-3PO.jpg",
+        "category": "Star Wars",
+        "price": 15.95
+    },
+    {
+        "id": 4,
+        "name": "Grocu",
+        "description": "The best figure",
+        "image": "grogu.jpg",
+        "category": "Star Wars",
+        "price": 15.95
+    },
+    {
+        "id": 5,
+        "name": "Harry Potter",
+        "description": "The best figure",
+        "image": "harry-potter.jpg",
+        "category": "Harry Potter",
+        "price": 15.95
+    },
+    {
+        "id": 6,
+        "name": "Ironman",
+        "description": "The best figure",
+        "image": "ironman.jpg",
+        "category": "Marvel",
+        "price": 13.95
+    },
+    {
+        "id": 7,
+        "name": "Hulk",
+        "description": "The best figure",
+        "image": "hulk.jpg",
+        "category": "Marvel",
+        "price": 13.95
+    },
+    {
+        "id": 8,
+        "name": "Doctor Stranger",
+        "description": "The best figure",
+        "image": "doctor-strange.jpg",
+        "category": "Marvel",
+        "price": 19.95
+    }
+]
