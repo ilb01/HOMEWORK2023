@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Compañias</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+
+        <script defer src="./js/app.js" type="module"></script>
+        <style>
+            #companies-container{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                width: 100%;
+                gap: 0.5rem;
+                color: aliceblue;
+                
+            }
+            #companies-container div{
+                background-color: grey;
+                text-align: center;
+                font-size: 1.3;
+                padding: 7px;
+            }
+        </style>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+    </head>
+    <body>
+
+        <section id="companies-container"></section>
+
+    </body>
+</html>

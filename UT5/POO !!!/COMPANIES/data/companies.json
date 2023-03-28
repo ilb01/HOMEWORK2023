@@ -1,0 +1,88 @@
+[
+    {
+        "id":1,
+        "name":"TBC",
+        "web":"www.tbc.com",
+        "email":"tbc@telsolutions.com",
+        "employees":[
+            {
+                "dni": 1,
+                "name": "Pepe",
+                "surname": "Lopez Garrido",
+                "salary":1300
+            },
+            {
+                "dni": 2,
+                "name": "Ismael",
+                "surname": "Sanchez Garrido",
+                "salary":1000
+            },
+            {
+                "dni": 3,
+                "name": "Samuel",
+                "surname": "Hernandez Lopez",
+                "salary":1200
+            }
+        ]
+    },
+    {
+        "id":2,
+        "name":"LPC",
+        "web":"www.lpc.com",
+        "email":"lpc@telsolutions.com",
+        "employees":[
+            {
+                "dni": 1,
+                "name": "Pepe",
+                "surname": "Lopez Garrido",
+                "salary":1200
+            },
+            {
+                "dni": 2,
+                "name": "Ismael",
+                "surname": "Sanchez Garrido",
+                "salary":1200
+            }
+        ]
+    },
+    {
+        "id":3,
+        "name":"OBE",
+        "web":"www.obe.com",
+        "email":"obe@telsolutions.com",
+        "employees":[
+            {
+                "dni": 1,
+                "name": "Pepe",
+                "surname": "Lopez Garrido",
+                "salary":1200
+            },
+            {
+                "dni": 2,
+                "name": "Ismael",
+                "surname": "Sanchez Garrido",
+                "salary":1200
+            }
+        ]
+    },
+    {
+        "id":4,
+        "name":"AMAZON",
+        "web":"www.amazon.com",
+        "email":"amazon@telsolutions.com",
+        "employees":[
+            {
+                "dni": 1,
+                "name": "Pepe",
+                "surname": "Lopez Garrido",
+                "salary":1200
+            },
+            {
+                "dni": 2,
+                "name": "Ismael",
+                "surname": "Sanchez Garrido",
+                "salary":1200
+            }
+        ]
+    }
+]

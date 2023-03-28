@@ -1,7 +1,7 @@
 // POO --> PROGRAMACIÓN ORIENTADA de OBJECTOS
 //  declarar una clase
 // export --> para exportar una clase desde javascript
-import {Author} from './author.js'
+import { Author } from './Author.js';
 export class book {
     static tax = "10%";
     static stock = 10;
@@ -27,7 +27,7 @@ export class book {
     }
     render(){
         let authors="";
-        authorsList.forEach(author => {
+        this.authorsList.forEach(author => {
             authors+=author.render();
         });
         // return --> nos delvuelve 

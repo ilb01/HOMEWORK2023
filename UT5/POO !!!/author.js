@@ -10,7 +10,7 @@ export class Author {
     render() {
         return `
             <p>
-            ${this.name}, ${this.surname1}, ${this.surname2}
+            ${this.name} ${this.surname1} (${this.year})
             </p>
             `;
     }
