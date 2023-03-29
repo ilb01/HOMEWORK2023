@@ -39,7 +39,7 @@ export default class ArticlesService {
         }
     }*/
 
-    static async insert(params) {
+    static insert(params) {
         const options = {
             method: 'POST',
             headers: this.HEADERS,
