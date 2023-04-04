@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+#logo-container {
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  transition: .3s ease all;
+  background-color: #393939;
+}
+
+body.dark {
+  background: #111111;
+}
+
+h1.dark {
+  color: white;
+}
+
+/* Botones */
+
+.switch {
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  left: 100px;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #F1F1F1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: .3s ease all;
+}
+
+.switch.active {
+  background: orange;
+  color: #000;
+}
+
+.switch.active::after {
+  right: 0;
+  left: unset;
+}
+
+.switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+
+#play-btn {
+  font-size: 1.7rem;
+  cursor: pointer;
+  border: none;
+  background-color: #393939;
+}
+
+/* imagenes */
+.img-container {
+  width: 50%;
+}
+img{
+  width: 100%;
+}

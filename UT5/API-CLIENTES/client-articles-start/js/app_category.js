@@ -1,4 +1,4 @@
-import ArticlesService from "./ArticleService.js";
+import CategoriesService from "./CategoryService.js";
 const listContainer = document.querySelector("#list-container");
 const form = document.querySelector("#frm-article");
 const messageAlert = document.querySelector("#message");
@@ -14,8 +14,6 @@ const populateArticles = (articles)=>{
                 <tr>
                     <td>${index + 1}</td>
                     <td>${e.name}</td>
-                    <td>${e.price}</td>
-                    <td>${e.stock}</td>
                     <td>${e.description}</td>
                     <td>
                         <button id="btn-delete-${e.id}" class="btn btn-warning btn-delete">Delete</button>
@@ -45,7 +43,7 @@ const populateArticles = (articles)=>{
         });
 }
 const renderArticles = () => {
-    ArticlesService.getItemsList().then((articles) => {
+    CategoriesService.getItemsList().then((articles) => {
         populateArticles(articles)
     });
 };
@@ -56,12 +54,10 @@ const btnUpdate = document.querySelector("#btn-update");
 const newArticle = (event) => {
     event.preventDefault(); //evita que se envien los datos de un submit y no refreque la pagina.
     const name = document.querySelector("#field-name").value;
-    const price = document.querySelector("#field-price").value;
-    const stock = document.querySelector("#field-stock").value;
     const description = document.querySelector("#field-description").value;
 
-    const item = { name, price, stock, description }; //"name":name; es lo mismo que name
-    ArticlesService.insert(item).then((data) => {
+    const item = { name, description }; //"name":name; es lo mismo que name
+    CategoriesService.insert(item).then((data) => {
         renderArticles();
         form.reset();
         messageAlert.textContent = data.message;
@@ -69,17 +65,15 @@ const newArticle = (event) => {
 };
 
 const deleteArticle = (id) => {
-    ArticlesService.delete(id).then((data) => {
+    CategoriesService.delete(id).then((data) => {
         renderArticles();
         messageAlert.textContent = `Article ${data.name} deleted`;
     });
 };
 const editArticle = (id) => {
-    ArticlesService.getItemById(id).then((data) => {
+    CategoriesService.getItemById(id).then((data) => {
         currentArticle = data;
         document.querySelector("#field-name").value = data.name;
-        document.querySelector("#field-price").value = data.price;
-        document.querySelector("#field-stock").value = data.stock;
         document.querySelector("#field-description").value = data.description;
 
         // Cambio de estado de los botones
@@ -94,15 +88,13 @@ const updateArticle = (event) => {
     // Recuperar los datos del formulario
     const id = currentArticle.id;
     const name = document.querySelector("#field-name").value;
-    const price = document.querySelector("#field-price").value;
-    const stock = document.querySelector("#field-stock").value;
     const description = document.querySelector("#field-description").value;
 
-    const item = {id, name, price, stock, description }; //"name":name; es lo mismo que name
+    const item = {id, name, description }; //"name":name; es lo mismo que name
 
 
     // Enviar datos a la API para que se modifique el articulo
-    ArticlesService.update(item).then((data) => {
+    CategoriesService.update(item).then((data) => {
         renderArticles();
         form.reset();
         // Cambio de estado de los botones
@@ -113,7 +105,7 @@ const updateArticle = (event) => {
 };
 
 const searchArticles = (name)=>{
-    ArticlesService.searchItemByName(name).then(list=>{
+    CategoriesService.searchItemByName(name).then(list=>{
         populateArticles(list);
     });
 }

@@ -18,10 +18,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// RUTAS ARTÍCULOS
 Route::get('/articles', 'App\Http\Controllers\ArticleController@index');
 Route::post('/articles', 'App\Http\Controllers\ArticleController@store');
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticleController@show');
 Route::put('/articles/{article}', 'App\Http\Controllers\ArticleController@update');
 Route::delete('/articles/{article}', 'App\Http\Controllers\ArticleController@destroy');
-
 Route::get('/articles/search/{name}', 'App\Http\Controllers\ArticleController@searchByName');
+
+//  RUTAS CATEGORIAS
+Route::get('/categories', 'App\Http\Controllers\CategoryController@index');
+Route::post('/categories', 'App\Http\Controllers\CategoryController@store');
+Route::get('/categories/{category}', 'App\Http\Controllers\CategoryController@show');
+Route::put('/categories/{category}', 'App\Http\Controllers\CategoryController@update');
+Route::delete('/categories/{category}', 'App\Http\Controllers\CategoryController@destroy');
+Route::get('/categories/search/{name}', 'App\Http\Controllers\CategoryController@searchByName');
