@@ -1,0 +1,22 @@
+main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+h1{
+    text-align: center;
+}
+h1 a{
+    color: black;
+    text-decoration: none;
+}
+h1 a:hover{
+    text-decoration: underline;
+}
+
+button{
+    background-color: greenyellow;
+
+}

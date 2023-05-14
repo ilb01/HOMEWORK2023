@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FUTBOLPREMIUN - Web Oficial</title>
+        <!-- Link CSS -->
+        <link rel="stylesheet" href="./css/styles.css" />
+        <!-- Icono de navegador -->
+        <link rel="shortcut icon" href="./img/logo_icon.png" type="image/x-icon" />
+        <!-- Link FontAwesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            />
+        <!-- Slider -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+            />
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        
+        <link rel="stylesheet" href="./css/loading.css">    
+        <!-- Link JS -->
+        <script defer src="./js/app.js"></script>
+        <script defer scr="./js/loading.js"></script>
+        <script defer="defer" src="./js/sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <div class="loading show">
+            <div class="spin"></div>
+        </div>
+        <!-- Header Camiseta--> 
+        <header>
+            <div>
+                <div>
+                    <a href="./index.html">
+                        <img src="./img/logo.png" id="logo" style="height: 70px"
+                            />
+                    </a>
+                </div>
+                <div>
+                    <input
+                        id="input-search"
+                        type="search"
+                        name="field-search"
+                        class="form-control"
+                        placeholder="Buscar algún equipo..."
+                        />
+                </div>
+                <div>
+                    <ul>
+                        <li class="submenu">
+                            <i
+                                class="fa-solid fa-cart-shopping"
+                                style="color: #ffffff"
+                                id="img-carrito"></i>
+                            <div id="num-camiseta"></div>
+                            <div id="carrito">
+                                <table id="lista-carrito" class="u-full-width">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Camiseta</th>
+                                            <th>Equipo</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="boton-item">Vaciar Carrito</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="login.html"><i class="fa-solid fa-user" style="color:
+                            #ffffff;"></i></a>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Central Equipo -->
+        <main id="lista-camiseta">
+            <!-- Slider main container -->
+            <div class="swiper swiper-hero">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/united.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/madrid.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/barca.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/munich.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/city.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/juventus.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/borrusia.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/milan.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/fiorentina.jpg"
+                            alt=""
+                            />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="img/banner/a_madrid.jpg"
+                            alt=""
+                            />
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <h1 id="encabezado">EQUIPACIONES</h1>
+            <section class="options">
+                <div>
+                    <select name="order" id="orderFilter">
+                        <option value="-1">-</option>
+                        <option value="P">Ordenar por equipo (A-Z)</option>
+                    </select>
+                </div>
+                <svg onclick="changeView(4)" class="icon-grid"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448
+                    512">
+                    <path fill="currentColor"
+                        d="M192 176C192 202.5 170.5 224 144 224H48C21.49 224
+                        0 202.5 0 176V80C0 53.49 21.49 32 48 32H144C170.5 32
+                        192 53.49 192 80V176zM192 432C192 458.5 170.5 480
+                        144 480H48C21.49 480 0 458.5 0 432V336C0 309.5 21.49
+                        288 48 288H144C170.5 288 192 309.5 192 336V432zM256
+                        80C256 53.49 277.5 32 304 32H400C426.5 32 448 53.49
+                        448 80V176C448 202.5 426.5 224 400 224H304C277.5 224
+                        256 202.5 256 176V80zM448 432C448 458.5 426.5 480
+                        400 480H304C277.5 480 256 458.5 256 432V336C256
+                        309.5 277.5 288 304 288H400C426.5 288 448 309.5 448
+                        336V432z"
+                        class=""></path>
+                </svg>
+                <svg onclick="changeView(6)" class="icon-grid"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448
+                    512">
+                    <path fill="currentColor"
+                        d="M0 72C0 49.91 17.91 32 40 32H88C110.1 32 128
+                        49.91 128 72V120C128 142.1 110.1 160 88 160H40C17.91
+                        160 0 142.1 0 120V72zM0 232C0 209.9 17.91 192 40
+                        192H88C110.1 192 128 209.9 128 232V280C128 302.1
+                        110.1 320 88 320H40C17.91 320 0 302.1 0 280V232zM128
+                        440C128 462.1 110.1 480 88 480H40C17.91 480 0 462.1
+                        0 440V392C0 369.9 17.91 352 40 352H88C110.1 352 128
+                        369.9 128 392V440zM160 72C160 49.91 177.9 32 200
+                        32H248C270.1 32 288 49.91 288 72V120C288 142.1 270.1
+                        160 248 160H200C177.9 160 160 142.1 160 120V72zM288
+                        280C288 302.1 270.1 320 248 320H200C177.9 320 160
+                        302.1 160 280V232C160 209.9 177.9 192 200
+                        192H248C270.1 192 288 209.9 288 232V280zM160 392C160
+                        369.9 177.9 352 200 352H248C270.1 352 288 369.9 288
+                        392V440C288 462.1 270.1 480 248 480H200C177.9 480
+                        160 462.1 160 440V392zM448 120C448 142.1 430.1 160
+                        408 160H360C337.9 160 320 142.1 320 120V72C320 49.91
+                        337.9 32 360 32H408C430.1 32 448 49.91 448
+                        72V120zM320 232C320 209.9 337.9 192 360
+                        192H408C430.1 192 448 209.9 448 232V280C448 302.1
+                        430.1 320 408 320H360C337.9 320 320 302.1 320
+                        280V232zM448 440C448 462.1 430.1 480 408
+                        480H360C337.9 480 320 462.1 320 440V392C320 369.9
+                        337.9 352 360 352H408C430.1 352 448 369.9 448
+                        392V440z"
+                        class=""></path>
+                </svg>
+            </section>
+            <section class="contenedor list-content grid-4"></section>
+        </main>
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="row">
+                <div class="four columns">
+                    <img src="./img/logo.png" id="logo" style="height:
+                        150px" />
+                </div>
+                <div class="row">
+                    <div class="four columns">
+                        <nav id="principal" class="menu">
+                            <a class="enlace" href="#">TIENDA</a>
+                            <a class="enlace" href="#">AYUDA</a>
+                            <a class="enlace" href="#">BLOG</a>
+                            <a class="enlace" href="#">TRABAJA CON NOSOTROS</a>
+                        </div>
+                        <div class="four columns">
+                            <nav id="principal" class="menu">
+                                <a class="enlace" href="#">EMPLEO</a>
+                                <a class="enlace" href="#">QUIÉNES SOMOS</a>
+                                <a class="enlace" href="#">ENVIOS</a>
+                                <a class="enlace" href="#">NORMAS DE LA
+                                    COMUNIDAD</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </body>
+    </html>

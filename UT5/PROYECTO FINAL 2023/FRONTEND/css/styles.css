@@ -1,0 +1,400 @@
+/* General */
+/*--------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#encabezado {
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 12px;
+}
+
+/* HEADER
+/*--------------------------*/
+header {
+    padding: 17.5px;
+    background: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+#input-search {
+    height: 35px;
+    text-align: center;
+    width: 550px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Estilos submenú */
+/*--------------------------*/
+.submenu {
+    position: relative;
+    padding: 0 20px;
+}
+
+.submenu #carrito {
+    display: none;
+    overflow: scroll;
+    max-height: 90vh;
+}
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+
+    top: 100%;
+    z-index: 1;
+    background-color: white;
+    margin-top: 2px;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+#carrito {
+    text-align: center;
+}
+
+#carrito a {
+    margin-top: 20px;
+}
+
+#num-camiseta {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+#lista-carrito {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* SECCION CONTENEDOR DE ITEMS */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5px;
+}
+
+.contenedor div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor .img-item {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: black;
+}
+
+.card {
+    margin-top: 10px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.card .favorite {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
+
+.favorite {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
+
+.favorite .on {
+    color: rgb(214, 32, 32);
+    text-shadow: 2px 2px 2px rgba(29, 28, 28, 0.5);
+}
+
+.fa-heart {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #086dd1;
+}
+
+
+.boton-item {
+    color: black !important;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0.5em 1.2em;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid;
+    border-color: black;
+    transition: all 1s ease;
+    position: relative;
+    border-radius: 10px;
+}
+
+.boton-item:hover {
+    background: black;
+    color: white !important;
+}
+
+/* GRID */
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.icon-grid, .icon-filter {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+th {
+    padding: 10px;
+}
+
+/* SLIDER */
+.swiper-hero {
+    margin-top: 110px;
+    width: 100%;
+    max-width: 2600px;
+    height: 400px;
+}
+
+.swiper-hero .swiper-slide {
+    width: 300px;
+}
+
+.swiper-hero img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.swiper-hero .swiper-button-prev,
+.swiper-hero .swiper-button-next {
+    --swiper-navigation-size: 20px;
+    background-color: black;
+    height: 70px;
+    width: 50px;
+    margin-top: -35px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.swiper-hero .swiper-button-prev {
+    border-radius: 0 65px 65px 0;
+    left: -10px;
+}
+
+.swiper-hero .swiper-button-next {
+    border-radius: 65px 0 0 65px;
+    right: -10px;
+}
+
+.swiper-hero:hover .swiper-button-prev,
+.swiper-hero:hover .swiper-button-next {
+    opacity: 1;
+}
+
+.swiper-hero .swiper-pagination {
+    --swiper-pagination-color: black;
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-inactive-color: #000;
+    --swiper-pagination-bullet-inactive-opacity: 0.25;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 2px;
+}
+
+.swiper-hero .swiper-pagination-bullet {
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.swiper-hero .swiper-pagination-bullet-active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer */
+/*--------------------------*/
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.footer .menu a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 45px;
+}
+
+.footer .row div {
+    margin: 30px;
+}
+
+#lista-camiseta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* MEDIA-SCREEN */
+@media (max-width: 900px) {
+    #input-search {
+        width: 250px;
+    }
+
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .contenedor div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .contenedor .img-item {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .precio-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer .row {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 45px;
+    }
+
+    footer .four .logo {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .swiper-hero img {
+        height: 344px;
+    }
+}
+
+@media (min-width: 750px) {
+    header {
+        text-align: left;
+    }
+}
