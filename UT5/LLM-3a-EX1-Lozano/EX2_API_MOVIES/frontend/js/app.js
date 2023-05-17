@@ -1,31 +1,3 @@
-const Container = document.querySelector('#list-container');
-
-
-// const populateContainer = (items) => {
-//     Container.innerHTML="";
-//     items.forEach((e) => {
-//         let template = `
-//         <div>
-//             <p>${e.page}/p>
-//             <p>${e.total_pages}</p>
-//         </div>
-//         `;
-//         Container.innerHTML += template;
-//     });
-// }
-
-// async function renderBooks() {
-//     MovieService.getItemsList().then((articles) => {
-//         populateContainer(articles);
-//     })
-// }
-
-// function init() {
-//     renderBooks();
-// }
-// init();
-
-
 // Referencia a nuestro grid
 const grid = document.querySelector('#grid-movies');
 
@@ -38,7 +10,7 @@ init();
 async function getMovies() {
     // Para poner el URL de donde esta el JSON 
     
-    const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=192e0b9821564f26f52949758ea3c473&language=es-ES');
+    const res = await fetch('https://api.themoviedb.org/3/search/movie?api_key=192e0b9821564f26f52949758ea3c473&query=batman');
 
     // Coger los datos el JSON
     const data = await res.json();
@@ -48,7 +20,7 @@ async function getMovies() {
     data.results.forEach( movie => {
         grid.innerHTML+=`
         <article>
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+            <img src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}">
             <h2>${movie.title}</h2>
         </article>
         `;
