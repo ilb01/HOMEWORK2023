@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Usuario | Administrador - FUTBOLPREMIUN - Web Oficial</title>
         <!-- Link CSS -->
-        <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/styles.css"/>
         <!-- Icono de navegador -->
-        <link rel="shortcut icon" href="../img/logo_icon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="./img/logo_icon.png" type="image/x-icon"
+            />
         <!-- Link FontAwesome -->
         <link
             rel="stylesheet"
@@ -16,28 +17,29 @@
             integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
-            />  
-        <link rel="stylesheet" href="./css/loading.css">
-        <script defer scr="./js/loading.js"></script>
+            />
+        <script defer scr="./js/app.js"></script>
     </head>
-    <body>
-        <div class="loading show">
-            <div class="spin"></div>
-        </div>
+    <body class="login_fondo">
         <main class="login">
-            <div class="cointainer">    
-                <div class="usuario">
-                    <i class="fa-solid fa-user"></i>
-                    <h1>Eres Usuario?</h1>
-                    <button><a href="user/user.html">Entra aquí</a></button>
+            <div class="container">
+                <div class="login_caja">
+                    <div class="usuario">
+                        <i class="fa-solid fa-user"></i>
+                        <h1>Eres Usuario?</h1>
+                        <a href="user/user.html" class="boton-item_2">Entrar aquí</a>
+                    </div>
+                    <div class="administrador">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <h1>Eres Administrador?</h1>
+                        <a href="admin/admin.html" class="boton-item_3">Entrar
+                            aquí</a>
+                    </div>
                 </div>
-                <div class="administrador">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                    <h1>Eres Administrador?</h1>
-                    <button><a href="admin/admin.html">Entra aquí</a></button>
-                </div>
-                
+                <section class="pt-3">
+                    <a href="index.html" id="btn-show-register">Volver a la página principal</a>
+                </section>
             </div>
         </main>
     </body>
-    </html>
+</html>

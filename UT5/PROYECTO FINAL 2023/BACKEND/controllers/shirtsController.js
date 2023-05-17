@@ -9,6 +9,7 @@ export const showAllShirts = async (req, res) => {
     }
 };
 
+
 export const showShirtById = async (req, res) => {
     const document = await Shirts.findById(req.params.idShirt);
     if(!document) {
@@ -31,6 +32,16 @@ export const newShirt = async (req, res) => {
             error:true,
             message : error
         });
+    }
+};
+
+export const searchShirtsByName = async (req, res) => {
+    try {
+        const { query } = req.params;
+        const documents = await Games.find({ name: new RegExp(query, 'i') })
+        res.json(documents);
+    } catch (error) {
+        console.log(error);
     }
 };
 

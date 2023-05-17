@@ -8,21 +8,21 @@ const orderFilterTag = document.querySelector('#orderFilter');
 const shirtContent = document.querySelector(".list-content");
 
 
-let shirtJson= [];
+let shirtJson = [];
 let articulosCarrito = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarEventListeners();
     cargarCamiseta();
-    // inputSearch.addEventListener("keyup", function (event) {
-    //     let searchInput = event.target.value;
-    //     if (searchInput.length >= 3) {
-    //         searchShirts(searchInput);
-    //     }
-    //     else if (searchShirts === 0) {
-    //         pintarCamiseta();
-    //     }
-    // })
-    inputSearch.addEventListener("keyup", searchGame);
+    inputSearch.addEventListener("keyup", function (event) {
+        let searchInput = event.target.value;
+        if (searchInput.length >= 3) {
+            searchShirts(searchInput);
+        }
+        else if (searchShirts === 0) {
+            pintarCamiseta();
+        }
+    })
+    // inputSearch.addEventListener("keyup", searchGame);
     // handleFavorites();
     // loadFavorites();
     orderFilterTag.addEventListener("change", function () {
@@ -31,16 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // handleFavorites();
     });
 });
-const searchGame = (event) => {
-    event.preventDefault();
-    const input = event.target;
-    if (input.value.length >= 3) {
-        let nameSearch = input.value.toLowerCase();
-        renderShirts(nameSearch);
-    } else if (input.value.length == 0) {
-        renderShirts();
-    }
-}
+// const searchGame = (event) => {
+//     event.preventDefault();
+//     const input = event.target;
+//     if (input.value.length >= 3) {
+//         let nameSearch = input.value.toLowerCase();
+//         renderShirts(nameSearch);
+//     } else if (input.value.length == 0) {
+//         renderShirts();
+//     }
+// }
 
 // FUNCIÓN DE ORDENAR (Clasificar por equipo)
 const sortCamiseta = () => {
@@ -49,7 +49,7 @@ const sortCamiseta = () => {
     let nuevaLista = [];
     if (option.value === 'P') {
         nuevaLista = shirtJson.sort((a, b) => {
-            if (a.team> b.team) return 1;
+            if (a.team > b.team) return 1;
             else if (a.team < b.team) return -1;
             else return 0;
         });
@@ -81,15 +81,15 @@ function cargarEventListeners() {
     });
 }
 
-// const searchShirts = (name) => {
-//     cargarCamiseta(name).then(e => {
-//         pintarCamiseta(e);
-//     });
-// }
+const searchShirts = (name) => {
+    cargarCamiseta(name).then(e => {
+        pintarCamiseta(e);
+    });
+}
 
 async function cargarCamiseta() {
     const res = await fetch("http://127.0.0.1:8800/api/shirts");
-    const shirtJson= await res.json();
+    const shirtJson = await res.json();
     pintarCamiseta(shirtJson);
 }
 
@@ -100,7 +100,10 @@ function pintarCamiseta(listaCamiseta) {
     listaCamiseta.forEach((camiseta) => {
         let htmlCamiseta = `
         <article class="card shadow-sm bg-light">
-            <img src="img/camiseta/${camiseta.img}"  class="card-img-top">
+            <div class="favorite">
+                <i class="fa-solid fa-heart" style="color: #8c95a6;"  data-id="${camiseta.id}"></i>
+            </div>
+            <img src="img/camiseta/${camiseta.img}"  class="card-img-top" loading="lazy">
             <div class="card-body">
                 <h4 class="card-title">${camiseta.name}</h4>
                 <p class="card-text team">${camiseta.team}.</p>
@@ -108,9 +111,7 @@ function pintarCamiseta(listaCamiseta) {
                 <p class="card-text price">${camiseta.price}€</p>
                 <a href="#" class="boton-item agregar-carrito" data-id="${camiseta.id}">Agregar Al Carrito</a>
             </div>
-            <div class="favorite">
-                <i class="fa-solid fa-heart" style="color: #8c95a6;"  data-id="${camiseta.id}"></i>
-            </div>
+            
         </article>`;
         shirtContent.innerHTML += htmlCamiseta;
     });
@@ -199,7 +200,7 @@ function generarCarritoHTML() {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
-                <img src="${imagen}" width="100">
+                <img src="${imagen}" width="100" loading="lazy">
             </td>
             <td>${name}</td>
             <td>${team}</td>

@@ -187,7 +187,6 @@ main {
     color: #086dd1;
 }
 
-
 .boton-item {
     color: black !important;
     margin-top: 5px;
@@ -197,7 +196,7 @@ main {
     background: rgba(0, 0, 0, 0);
     border: 2px solid;
     border-color: black;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     position: relative;
     border-radius: 10px;
 }
@@ -296,6 +295,95 @@ th {
 
 .swiper-hero .swiper-pagination-bullet-active {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+/* LOGIN */
+.login_fondo {
+    background-color: black;
+    color: white;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-item_2 {
+    background: blue;
+    color: white !important;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0.5em 1.2em;
+    border: 2px solid;
+    border-color: blue;
+    transition: all 0.5s ease;
+    position: relative;
+    border-radius: 10px;
+}
+
+.boton-item_2:hover {
+    background: black;
+    color: blue !important;
+    border: 2px solid;
+    border-color: blue;
+}
+.boton-item_3 {
+    background: red ;
+    color: white !important;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0.5em 1.2em;
+    border: 2px solid;
+    border-color: red;
+    transition: all 0.5s ease;
+    position: relative;
+    border-radius: 10px;
+}
+
+.boton-item_3:hover {
+    background: black;
+    color: red !important;
+    border: 2px solid;
+    border-color: red;
+}
+
+.login_caja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_caja div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 195px;
+}
+
+.usuario {
+    cursor: pointer;
+}
+
+.usuario i {
+    font-size: 50px;
+}
+
+.administrador {
+    cursor: pointer;
+}
+
+.administrador i {
+    font-size: 50px;
+}
+
+.container {
+    display: grid;
+    place-items: center;
 }
 
 /* Footer */

@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/shirts', shirtsController.showAllShirts);
 router.get('/shirts/:idShirt', shirtsController.showShirtById);
+router.get('/shirts/search/:query', shirtsController.searchShirtsByName);
 router.post('/shirts', shirtsController.newShirt);    
 router.put('/shirts', shirtsController.updateShirt);
 router.delete('/shirts/:idShirt', shirtsController.deleteShirt);

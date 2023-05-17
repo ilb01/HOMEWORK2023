@@ -1,4 +1,4 @@
-import ShirtService from "./services/ShirtService.js";
+import ShirtsService from "./services/ShirtService.js";
 import { scrollToHash } from "./util.js";
 import Loading from "./components/Loading.js";
 const loadingObj = new Loading("modal-message", "Loading...");
@@ -9,9 +9,9 @@ const btnCancel = document.querySelector('#btn-cancel');
 const messageAlert = document.querySelector('#message');
 const form = document.querySelector('#frm-item');
 const inputSearch = document.querySelector("#input-search");
-const inputName = document.querySelector('#field-name');
-const inputPrice = document.querySelector('#field-price');
-const inputTeam = document.querySelector('#field-team');
+// const inputName = document.querySelector('#field-name');
+// const inputPrice = document.querySelector('#field-price');
+// const inputTeam = document.querySelector('#field-team');
 
 let currentShirt = null;
 
@@ -25,7 +25,7 @@ const newShirt = () => {
     const shirt = {img, name, team, price};
     console.log("shirt", shirt);
     loadingObj.open();
-    ShirtService.insert(shirt).then(data => {
+    ShirtsService.insert(shirt).then(data => {
         console.log("message", data);
         renderShirts();
         form.reset();
@@ -36,13 +36,12 @@ const newShirt = () => {
 }
 
 const editShirt = (id) => {
-    ShirtService.getItemById(id).then(data => {
+    ShirtsService.getItemById(id).then(data => {
         currentShirt = data;
-        document.querySelector('#field-img').value = data.img;
-        document.querySelector('#field-name').value = data.name;
-        document.querySelector('#field-team').value = data.team;
-        document.querySelector('#field-price').value = data.price;
-        //country
+        document.querySelector('#field-img').value = currentShirt.img;
+        document.querySelector('#field-name').value = currentShirt.name;
+        document.querySelector('#field-team').value = currentShirt.team;
+        document.querySelector('#field-price').value = currentShirt.price;
     });
     btnInsert.classList.replace("d-inline", "d-none");
     btnUpdate.classList.replace("d-none", "d-inline");
@@ -50,17 +49,15 @@ const editShirt = (id) => {
     scrollToHash("title-form");
 }
 
-const updateGame = () => {
+const updateShirt = () => {
     const id = currentShirt.id;
     const img = document.querySelector('#field-img').value;
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-
-    
     const shirt = {id, img, name, team, price};
 
-    ShirtService.update(shirt).then(data => {
+    ShirtsService.update(shirt).then(data => {
         currentShirt = null;
         messageAlert.textContent = data.message;
         btnCancel.classList.replace("d-inline", "d-none");
@@ -69,11 +66,10 @@ const updateGame = () => {
         form.reset();
         renderShirts();
     });
-
 }
 
 const deleteShirt = (id) => {
-    ShirtService.delete(id)
+    ShirtsService.delete(id)
         .then(data => {
             messageAlert.textContent = data.message;
             //Change state
@@ -82,7 +78,7 @@ const deleteShirt = (id) => {
 }
 
 const populateShirts = (items) => {
-    items.forEach((e, i) => {
+    Array.from(items).forEach((e, i) => {
         listContainer.innerHTML += `
             <tr>
                 <td>${i + 1}</td>
@@ -121,7 +117,7 @@ const renderShirts = (searchValue) => {
     listContainer.innerHTML = "";
     if (searchValue) {
         loadingObj.open();
-        ShirtService.searchItemByName(searchValue)
+        ShirtsService.searchItemByName(searchValue)
             .then(items => {
                 populateShirts(items);
             }).finally(() => {
@@ -129,7 +125,7 @@ const renderShirts = (searchValue) => {
             });
     } else {
         loadingObj.open();
-        ShirtService.getItemsList()
+        ShirtsService.getItemsList()
             .then(items => {
                 populateShirts(items);
             }).finally(() => {
@@ -140,33 +136,33 @@ const renderShirts = (searchValue) => {
 const validateForm = (event) => {
     event.preventDefault();
     // Validate each field
-    if(!inputName.validity.valid) {
-        alert("Nombre no válido");
-        inputName.focus();
-        return false;
-    }
-    if(!inputTeam.validity.valid) {
-        alert("Equipo no válido");
-        inputTeam.focus();
-        return false;
-    }
-    if(!inputPrice.validity.valid) {
-        alert("Precio incorrecto");
-        inputPrice.focus();
-        return false;
-    }
+    // if(!inputName.validity.valid) {
+    //     alert("Nombre no válido");
+    //     inputName.focus();
+    //     return false;
+    // }
+    // if(!inputTeam.validity.valid) {
+    //     alert("Equipo no válido");
+    //     inputTeam.focus();
+    //     return false;
+    // }
+    // if(!inputPrice.validity.valid) {
+    //     alert("Precio incorrecto");
+    //     inputPrice.focus();
+    //     return false;
+    // }
     
     //Execute insert or update depends to button name 
     if (event.target.id === "btn-insert") {
         newShirt();
     } else if (event.target.id === "btn-update") {
-        updateGame();
+        updateShirt();
     }else{
         console.log("id button not found in validateForm function");
     }
 }
 
-const searchGame = (event) => {
+const searchShirt = (event) => {
     event.preventDefault();
     const input = event.target;
     if (input.value.length >= 3) {
@@ -188,7 +184,7 @@ function init() {
         form.reset();
     });
 
-    inputSearch.addEventListener("keyup", searchGame);
+    inputSearch.addEventListener("keyup", searchShirt);
     btnInsert.addEventListener("click", validateForm);
     btnUpdate.addEventListener("click", validateForm);
     // Reiniciamos el formulario por si hay datos precargados
