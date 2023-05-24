@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 const leaguesSchema = new Schema({
     name: {
         type: String,
-        required: true
     }, 
-    league: {
+    country: {
         type: String,
-        required: true
     }
 }, 
 { versionKey: false }

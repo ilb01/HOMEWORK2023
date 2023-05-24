@@ -35,22 +35,6 @@ export const searchShirtsByLeague = async (req, res) => {
     }
 };
 
-export const searchShirtsByPrice = async (req, res) => {
-    try {
-        const { minPrice, maxPrice } = req.params;
-        const documents = await Shirts.find({
-            $and:
-                [
-                    { price: { $gte: minPrice } },
-                    { price: { $lte: maxPrice } },
-                ]
-        }).populate("league");
-        res.json(documents);
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 export const showShirtById = async (req, res) => {
     const document = await Shirts.findById(req.params.idShirt);
     if (!document) {

@@ -32,19 +32,19 @@ const sortCamiseta = () => {
         });
     }
     else if (option.value === 'A') {
-        nuevaLista = shirtJson.filter((a) => a.league === "laliga");
+        nuevaLista = shirtJson.filter((a) => a.league_name === "laliga");
     }
     else if (option.value === 'B') {
-        nuevaLista = shirtJson.filter((a) => a.league === "ligue1");
+        nuevaLista = shirtJson.filter((a) => a.league_name === "ligue1");
     }
     else if (option.value === 'C') {
-        nuevaLista = shirtJson.filter((a) => a.league === "premier league");
+        nuevaLista = shirtJson.filter((a) => a.league_name === "premier league");
     }
     else if (option.value === 'D') {
-        nuevaLista = shirtJson.filter((a) => a.league === "bundesliga");
+        nuevaLista = shirtJson.filter((a) => a.league_name === "bundesliga");
     }
     else if (option.value === 'E') {
-        nuevaLista = shirtJson.filter((a) => a.league === "serie a");
+        nuevaLista = shirtJson.filter((a) => a.league_name === "serie a");
     }
     else {
         return;
@@ -141,7 +141,7 @@ function agregarCamiseta(e) {
     };
 
     // Revisa si un elemento ya existe en el carrito
-    const existe = articulosCarrito.some((camiseta) => camiseta.id === infoCamiseta.id);
+    const existe = articulosCarrito.some((camiseta) => camiseta.id == infoCamiseta.id);
     if (existe) {
         const camisetas = articulosCarrito.map((camiseta) => {
             if (camiseta.id === infoCamiseta.id) {
@@ -171,7 +171,7 @@ function eliminarCamiseta(e) {
         const camisetaId = e.target.getAttribute("data-id");
 
         // Elimina del arreglo de articulosCarrito por el data-id
-        articulosCarrito = articulosCarrito.filter((camiseta) => camiseta.id !== camisetaId);
+        articulosCarrito = articulosCarrito.filter((camiseta) => camiseta.id != camisetaId);
 
         generarCarritoHTML(); // Iterar sobre el carrito y mostrar su HTML
     }
