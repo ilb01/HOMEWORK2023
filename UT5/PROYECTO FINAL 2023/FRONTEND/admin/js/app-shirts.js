@@ -14,11 +14,13 @@ const inputSearch = document.querySelector("#input-search");
 let currentShirt = null;
 
 const newShirt = () => {
+    const img = document.querySelector('#field-img').value;
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
     const league = document.querySelector("#field-league").value;
-    const shirt = {name, team, price, league };
+    const league_name = document.querySelector("#field-league_name").value;
+    const shirt = {img, name, team, price, league, league_name};
     console.log("shirt", shirt);
     loadingObj.open();
     ShirtService.insert(shirt).then(data => {
@@ -34,10 +36,12 @@ const newShirt = () => {
 const editShirt = (id) => {
     ShirtService.getItemById(id).then(data => {
         currentShirt = data;
+        document.querySelector('#field-img').value = data.img;
         document.querySelector('#field-name').value = data.name;
         document.querySelector('#field-team').value = data.team;
         let option =document.querySelector(`#field-league option[value*='${data.league}']`);
         if(option) option.selected=true;
+        document.querySelector("#field-league_name").value = data.league_name;
         document.querySelector('#field-price').value = data.price;
         //country
     });
@@ -49,11 +53,13 @@ const editShirt = (id) => {
 
 const updateShirt = () => {
     const id = currentShirt.id;
+    const img = document.querySelector('#field-img').value;
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
     const league = document.querySelector("#field-league").value;
-    const shirt = {id, name, team, league, price };
+    const league_name = document.querySelector("#field-league_name").value;
+    const shirt = {id, img, name, team, league , league_name, price };
 
     ShirtService.update(shirt).then(data => {
         currentShirt = null;
@@ -81,9 +87,11 @@ const populateShirts = (items) => {
         listContainer.innerHTML += `
             <tr>
                 <td>${i + 1}</td>
+                <td>${e.img}</td>
                 <td>${e.name}</td>
                 <td>${e.team}</td>
                 <td>${e.league.name}</td>
+                <td>${e.league_name}</td>
                 <td>${e.price}</td>
                 <td class="text-center">
                     <button id="btn-delete-${e.id}" class="btn btn-danger btn-delete">Delete</button>

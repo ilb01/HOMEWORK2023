@@ -25,9 +25,11 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Imagen</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Equipo</th>
                         <th scope="col">Liga</th>
+                        <th scope="col">Nombre de Liga(filtrar)</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -44,6 +46,10 @@
         <form id="frm-item">
             <div class="row">
                 <div class="col mb-3">
+                    <label class="form-label">Imagen</label>
+                    <input id="field-img" type="text" class="form-control" placeholder="" required maxlength="20"/>
+                </div>
+                <div class="col mb-3">
                     <label class="form-label">Nombre</label>
                     <input id="field-name" type="text" class="form-control" placeholder="" required />
                 </div>
@@ -56,6 +62,12 @@
                 <div class="col mb-3">
                     <label class="form-label">Liga</label>
                     <select name="field-league" id="field-league" class="form-select"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label">Nombre de Liga</label>
+                    <input id="field-league_name" type="text" class="form-control" placeholder="NOMBRE PARA FILTRAR" required />
                 </div>
             </div>
             <div class="row">

@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const shirtsSchema = new Schema({
+    img:{
+        type:String,
+    },
     name: {
         type: String,
         required: true,
@@ -17,6 +20,10 @@ const shirtsSchema = new Schema({
     league: {
         type: mongoose.Schema.ObjectId,
         ref: 'Leagues'
+    },
+    league_name:{
+        type: String,
+        required:true,
     },
     img:{
         type: String,

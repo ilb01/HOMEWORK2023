@@ -3,13 +3,11 @@ const carrito = document.querySelector("#carrito");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
 const listaCamiseta = document.querySelector("#lista-camiseta");
-const inputSearch = document.querySelector('#input-search');
 const orderFilterTag = document.querySelector('#orderFilter');
 const shirtContent = document.querySelector(".list-content");
 
-
+let shirtsSearch = [];
 let articulosCarrito = [];
-// let shirtJson = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarEventListeners();
     cargarCamiseta();
@@ -19,6 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const searchShirts = () => {
+    const search = document.getElementById("input-search").value;
+    const resultado = shirtJson.filter((shirt) => {
+        if (search === "") return true;
+        // .trim --> elimina los espacios en ambos lados
+        return shirt.team.toLowerCase().includes(search.toLowerCase().trim());
+    });
+
+    pintarCamiseta(resultado);
+};
 // FUNCIÓN DE ORDENAR (Clasificar por equipo)
 const sortCamiseta = () => {
     let index = orderFilterTag.selectedIndex;
