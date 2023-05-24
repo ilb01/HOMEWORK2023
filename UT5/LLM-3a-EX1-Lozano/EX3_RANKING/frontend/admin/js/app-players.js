@@ -121,7 +121,6 @@ const renderPlayers = (searchValue) => {
                 }else{
                     populateGames(items);
                 }
-                
             }).finally(() => {
                 loadingObj.close();
             });

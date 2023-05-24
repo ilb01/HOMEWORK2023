@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USUARIO - FUTBOLPREMIUN - Web Oficial</title>
-    <link rel="shortcut icon" href="../img/logo_icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="../css/loading.css"> -->
-   
-    <!-- <script defer scr="../js/loading.js"></script> -->
-    <script defer src="./js/app.js" type="module"></script>
-    <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>USUARIO - FUTBOLPREMIUN - Web Oficial</title>
+        <link rel="shortcut icon" href="../img/logo_icon.png"
+            type="image/x-icon" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <script defer src="./js/app.js" type="module"></script>
+        <script defer src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+        <style>
         body {
             padding: 0;
             margin: 0;
@@ -52,129 +50,151 @@
             align-items: center;
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <div id="page-login" class="text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
-        <section class="text-bg-dark w-25 border-2 pt-5" >
-            <h2>Login de Usuario</h2>
-            <form>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Email</label>
-                        <input id="field-login-email" type="text" class="form-control" placeholder="" required maxlength="20"/>
+    <body>
+        <div id="page-login"
+            class="text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
+            <section class="text-bg-dark w-25 border-2 pt-5">
+                <h2>Login de Usuario</h2>
+                <form>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Email</label>
+                            <input id="field-login-email" type="text"
+                                class="form-control" placeholder required
+                                maxlength="20"/>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Password</label>
-                        <input id="field-login-password" type="password" class="form-control" placeholder="" required />
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Password</label>
+                            <input id="field-login-password" type="password"
+                                class="form-control" placeholder required />
+                        </div>
                     </div>
-                </div>
-                <section class="flex justify-content-end">
-                    <div class="text-center">
-                        <button id="btn-login" class="btn btn-info" type="button">Entrar</button>
-                    </div>
+                    <section class="flex justify-content-end">
+                        <div class="text-center">
+                            <button id="btn-login" class="btn btn-info"
+                                type="button">Entrar</button>
+                        </div>
+                    </section>
+                </form>
+                <section class="pt-3">
+                    ¿No tienes usuario?
+                    <a href="#" id="btn-show-register">Regístrate</a>
                 </section>
-            </form>
-            <section class="pt-3">
-                ¿No tienes usuario? 
-                <a href="#" id="btn-show-register">Regístrate</a> 
-            </section>
-            <section class="pt-3">
-                Cambiar de Usuario o Administrador
-                <a href="../login.html" id="btn-show-register">Cambiar</a> 
-            </section>
-            <section class="pt-3">
-                Volver a la página principal
-                <a href="../index.html" id="btn-show-register">Volver atrás</a> 
-            </section>
-        </section>
-    </div>
-
-    <div id="page-register" class="d-none text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
-        <section class="text-bg-dark w-25 border-2 pt-5" >
-            <h2>Registro de Usuario</h2>
-            <form id="form-register">
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input id="field-register-name" type="text" class="form-control" placeholder="" required maxlength="20"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Apellido</label>
-                        <input id="field-register-surname" type="text" class="form-control" placeholder="" required maxlength="20"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Email</label>
-                        <input id="field-register-email" type="text" class="form-control" placeholder="" required maxlength="20"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Password</label>
-                        <input id="field-register-password" type="password" class="form-control" placeholder="" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label class="form-label">Repite el password</label>
-                        <input id="field-register-repeat-password" type="password" class="form-control" placeholder="" required />
-                    </div>
-                </div>
-                <section class="flex justify-content-end">
-                    <div class="text-center">
-                        <button id="btn-register" class="btn btn-info" type="button">Registro</button>
-                    </div>
+                <section class="pt-3">
+                    Cambiar de Usuario o Administrador
+                    <a href="../login.html" id="btn-show-register">Cambiar</a>
                 </section>
-            </form>
-            <section class="pt-3">
-                ¿Ya tienes usuario? 
-                <a href="#" id="btn-show-login">Login</a> 
+                <section class="pt-3">
+                    Volver a la página principal
+                    <a href="../index.html" id="btn-show-register">Volver atrás</a>
+                </section>
             </section>
-            <section class="pt-3">
-                Cambiar de Usuario o Administrador
-                <a href="../login.html" id="btn-show-register">Cambiar</a> 
-            </section>
-            <section class="pt-3">
-                Volver a la página principal
-                <a href="../index.html" id="btn-show-register">Volver atrás</a> 
-            </section>
-        </section>
-    </div>
+        </div>
 
-    <div id="page-admin" class="d-none">
-        <header class="d-flex justify-content-between align-content-center p-2 text-bg-dark">
-            <h1>Panel de administración</h1>
-            <div class="d-flex align-content-center justify-content-around sesión">
-                <div id="user-name"></div> 
-                <button id="btn-logout" class="btn btn-outline-danger p-1">CERRAR SESIÓN</button>
-            </div>
-        </header>
-        <main>
-            <aside class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-4">Menú</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active text-white"  data-link="SHIRT">Camisetas</a>
-                    </li>
-                </ul>
-                <hr>
-            </aside>
-            <section class="page">
-                <iframe id="current-page" src="man-shirts.html" width="100%" height="100%">
-                </iframe>
+        <div id="page-register"
+            class="d-none text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
+            <section class="text-bg-dark w-25 border-2 pt-5">
+                <h2>Registro de Usuario</h2>
+                <form id="form-register">
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input id="field-register-name" type="text"
+                                class="form-control" placeholder required
+                                maxlength="20"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Apellido</label>
+                            <input id="field-register-surname" type="text"
+                                class="form-control" placeholder required
+                                maxlength="20"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Email</label>
+                            <input id="field-register-email" type="text"
+                                class="form-control" placeholder required
+                                maxlength="20"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Password</label>
+                            <input id="field-register-password" type="password"
+                                class="form-control" placeholder required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Repite el password</label>
+                            <input id="field-register-repeat-password"
+                                type="password" class="form-control" placeholder
+                                required />
+                        </div>
+                    </div>
+                    <section class="flex justify-content-end">
+                        <div class="text-center">
+                            <button id="btn-register" class="btn btn-info"
+                                type="button">Registro</button>
+                        </div>
+                    </section>
+                </form>
+                <section class="pt-3">
+                    ¿Ya tienes usuario?
+                    <a href="#" id="btn-show-login">Login</a>
+                </section>
+                <section class="pt-3">
+                    Cambiar de Usuario o Administrador
+                    <a href="../login.html" id="btn-show-register">Cambiar</a>
+                </section>
+                <section class="pt-3">
+                    Volver a la página principal
+                    <a href="../index.html" id="btn-show-register">Volver atrás</a>
+                </section>
             </section>
-        </main>
-    </div>
+        </div>
 
-</body>
+        <div id="page-admin" class="d-none">
+            <header
+                class="d-flex justify-content-between align-content-center p-2 text-bg-dark">
+                <h1>Panel de administración</h1>
+                <div
+                    class="d-flex align-content-center justify-content-around sesión">
+                    <div id="user-name"></div>
+                    <button id="btn-logout" class="btn btn-outline-danger p-1">CERRAR
+                        SESIÓN</button>
+                </div>
+            </header>
+            <main>
+                <aside class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+                    <a href="/"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4">Menú</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active text-white"
+                                data-link="SHIRT">Camisetas</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </aside>
+                <section class="page">
+                    <iframe id="current-page" src="man-shirts.html" width="100%"
+                        height="100%">
+                    </iframe>
+                </section>
+            </main>
+        </div>
+
+    </body>
 
 </html>

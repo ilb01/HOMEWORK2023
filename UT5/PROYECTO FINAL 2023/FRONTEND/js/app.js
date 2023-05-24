@@ -8,39 +8,16 @@ const orderFilterTag = document.querySelector('#orderFilter');
 const shirtContent = document.querySelector(".list-content");
 
 
-let shirtJson = [];
 let articulosCarrito = [];
+// let shirtJson = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarEventListeners();
     cargarCamiseta();
-    inputSearch.addEventListener("keyup", function (event) {
-        let searchInput = event.target.value;
-        if (searchInput.length >= 3) {
-            searchShirts(searchInput);
-        }
-        else if (searchShirts === 0) {
-            pintarCamiseta();
-        }
-    })
-    // inputSearch.addEventListener("keyup", searchGame);
-    // handleFavorites();
-    // loadFavorites();
+    // CLICK DE ORDENAR (Clasificar por nombre o por precio)
     orderFilterTag.addEventListener("change", function () {
         sortCamiseta();
-        // loadFavorites();
-        // handleFavorites();
     });
 });
-// const searchGame = (event) => {
-//     event.preventDefault();
-//     const input = event.target;
-//     if (input.value.length >= 3) {
-//         let nameSearch = input.value.toLowerCase();
-//         renderShirts(nameSearch);
-//     } else if (input.value.length == 0) {
-//         renderShirts();
-//     }
-// }
 
 // FUNCIÓN DE ORDENAR (Clasificar por equipo)
 const sortCamiseta = () => {
@@ -53,6 +30,21 @@ const sortCamiseta = () => {
             else if (a.team < b.team) return -1;
             else return 0;
         });
+    }
+    else if (option.value === 'A') {
+        nuevaLista = shirtJson.filter((a) => a.league === "laliga");
+    }
+    else if (option.value === 'B') {
+        nuevaLista = shirtJson.filter((a) => a.league === "ligue1");
+    }
+    else if (option.value === 'C') {
+        nuevaLista = shirtJson.filter((a) => a.league === "premier league");
+    }
+    else if (option.value === 'D') {
+        nuevaLista = shirtJson.filter((a) => a.league === "bundesliga");
+    }
+    else if (option.value === 'E') {
+        nuevaLista = shirtJson.filter((a) => a.league === "serie a");
     }
     else {
         return;
@@ -81,37 +73,33 @@ function cargarEventListeners() {
     });
 }
 
-const searchShirts = (name) => {
-    cargarCamiseta(name).then(e => {
-        pintarCamiseta(e);
-    });
-}
-
 async function cargarCamiseta() {
     const res = await fetch("http://127.0.0.1:8800/api/shirts");
-    const shirtJson = await res.json();
+    shirtJson = await res.json();
     pintarCamiseta(shirtJson);
 }
 
 function pintarCamiseta(listaCamiseta) {
     shirtContent.innerHTML = "";
-
     // Pinta todas las tarjetas con la información de las camisetas
     listaCamiseta.forEach((camiseta) => {
         let htmlCamiseta = `
         <article class="card shadow-sm bg-light">
-            <div class="favorite">
-                <i class="fa-solid fa-heart" style="color: #8c95a6;"  data-id="${camiseta.id}"></i>
-            </div>
             <img src="img/camiseta/${camiseta.img}"  class="card-img-top" loading="lazy">
             <div class="card-body">
                 <h4 class="card-title">${camiseta.name}</h4>
                 <p class="card-text team">${camiseta.team}.</p>
-                <hr>
+                <select class="tallas">
+                    <option value="${camiseta.tallas[0]}">${camiseta.tallas[0]}</option>
+                    <option value="${camiseta.tallas[1]}">${camiseta.tallas[1]}</option>
+                    <option value="${camiseta.tallas[2]}">${camiseta.tallas[2]}</option>
+                    <option value="${camiseta.tallas[3]}">${camiseta.tallas[3]}</option>
+                    <option value="${camiseta.tallas[4]}">${camiseta.tallas[4]}</option>
+                    <option value="${camiseta.tallas[5]}">${camiseta.tallas[5]}</option>
+                </select>
                 <p class="card-text price">${camiseta.price}€</p>
                 <a href="#" class="boton-item agregar-carrito" data-id="${camiseta.id}">Agregar Al Carrito</a>
             </div>
-            
         </article>`;
         shirtContent.innerHTML += htmlCamiseta;
     });
@@ -147,6 +135,7 @@ function agregarCamiseta(e) {
         name: camiseta.querySelector("h4").textContent,
         team: camiseta.querySelector(".team").textContent,
         price: camiseta.querySelector(".price").textContent,
+        tallas: camiseta.querySelector(".tallas").value,
         id: camiseta.querySelector("a").getAttribute("data-id"),
         cantidad: 1,
     };
@@ -196,7 +185,7 @@ function generarCarritoHTML() {
 
     // Recorre el carrito y genera el HTML para cada item
     articulosCarrito.forEach((camiseta) => {
-        const { imagen, name, team, price, cantidad, id } = camiseta; // Usamos destructuring
+        const { imagen, name, team, price, cantidad, tallas, id } = camiseta; // Usamos destructuring
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
@@ -204,10 +193,11 @@ function generarCarritoHTML() {
             </td>
             <td>${name}</td>
             <td>${team}</td>
+            <td>${tallas}</td>
             <td>${price}</td>
             <td>${cantidad}</td>
             <td>
-                <a href="#" class="borrar-camiseta" data-id="${id}" > X </a>
+                <a href="#" class="borrar-camiseta" data-id="${id}">X</a>
             </td>
         `;
         cantidadTotal += cantidad;
@@ -221,7 +211,7 @@ function generarCarritoHTML() {
         const row = document.createElement("tr");
         /*template*/
         row.innerHTML = `
-        <td colspan="3">Total</td>
+        <td colspan="4">Total</td>
         <td>${precioTotal}€</td>
         <td>${cantidadTotal}</td>
         <td></td>
@@ -243,89 +233,6 @@ function calcularNumeroCamiseta() {
     let numCamiseta = document.querySelector("#num-camiseta");
     numCamiseta.innerHTML = cantidadTotal;
 }
-
-
-// SLIDER
-const swiper = new Swiper(".swiper-hero", {
-    // Optional parameters
-    // slidesPerView: "auto",
-    // spaceBetween: 15,
-    // slidesPerGroupAuto: true,
-
-    direction: "horizontal",
-    loop: true,
-    // allowTouchMove: true,
-    // effect: "cube",
-    autoplay: {
-        delay: 5000,
-        // pauseOnMouseEnter: true,
-        // disableOnInteraction: false,
-    },
-
-    // If we need pagination
-    pagination: {
-        el: ".swiper-pagination",
-        type: "progressbar",
-        // clickable: true,
-        // dynamicBullets: true
-    },
-
-    // Navigation arrows
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-        el: ".swiper-scrollbar",
-        draggable: true,
-    },
-});
-
-
-// CORAZON
-
-let shirtsFavorites = [];
-
-
-const handleFavorites = () => {
-    const favoritesList = document.querySelectorAll(".fa-heart");
-    favoritesList.forEach(fav => {
-        fav.addEventListener("click", function () {
-            // This es el icono HTML en el cual el usuario acaba de pulsar
-            this.classList.toggle("on");
-            saveFavorites(this);
-        });
-    });
-};
-
-// FUNCION DE GUARDAR LOS FAVORITOS
-const saveFavorites = (favObj) => {
-    let idFavorite = favObj.dataset.id;
-    if (favObj.classList.contains("on")) {
-        // Agregar favorito
-        shirtsFavorites.push({ "id": idFavorite });
-    } else {
-        // Eliminar favorito
-        shirtsFavorites = shirtsFavorites.filter(e => e.id != idFavorite);
-    }
-    // Guardar los favoritos
-    localStorage.setItem("shirtsFavorites", JSON.stringify(shirtsFavorites));
-};
-
-// CARGAR LOS FAVORITOS DE localStorage
-const loadFavorites = () => {
-    if (localStorage.getItem("shirtsFavorites")) {
-        shirtsFavorites = JSON.parse(localStorage.getItem("shirtsFavorites"));
-    } else {
-        shirtsFavorites = [];
-    }
-
-    shirtsFavorites.forEach(fav => {
-        document.querySelector(`.fa-heart[data-id="${fav.id}"]`).classList.add("on");
-    });
-};
 
 function mostrarAlert() {
     Swal.fire({

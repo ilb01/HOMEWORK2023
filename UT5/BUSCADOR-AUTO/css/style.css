@@ -1,0 +1,9 @@
+#searchInput {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#searchResults {
+    margin-top: 10px;
+}

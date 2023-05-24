@@ -4,6 +4,8 @@
     "name": "1ª equipación Real Madrid 22/23",
     "team": "Real Madrid",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "madrid_1.jpg"
   },
   {
@@ -11,6 +13,8 @@
     "name": "2ª equipación Real Madrid 22/23",
     "team": "Real Madrid",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "madrid_2.jpg"
   },
   {
@@ -18,6 +22,8 @@
     "name": "1ª equipación FC Barcelona 22/23",
     "team": "FC Barcelona",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "barcelona_1.jpg"
   },
   {
@@ -25,6 +31,8 @@
     "name": "2ª equipación FC Barcelona 22/23",
     "team": "FC Barcelona",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "barcelona_2.jpg"
   },
   {
@@ -32,6 +40,8 @@
     "name": "1ª equipación Atlético Madrid 22/23",
     "team": "Atlético Madrid",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "a.madrid_1.jpg"
   },
   {
@@ -39,6 +49,8 @@
     "name": "2ª equipación Atlético Madrid 22/23",
     "team": "Atlético Madrid",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "a.madrid_2.jpg"
   },
   {
@@ -46,6 +58,8 @@
     "name": "1ª equipación Sevilla 22/23",
     "team": "Sevilla",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "sevilla_1.jpg"
   },
   {
@@ -53,6 +67,8 @@
     "name": "2ª equipación Sevilla 22/23",
     "team": "Sevilla",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "sevilla_2.jpg"
   },
   {
@@ -60,6 +76,8 @@
     "name": "1ª equipación Betis 22/23",
     "team": "Betis",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "betis_1.jpg"
   },
   {
@@ -67,6 +85,8 @@
     "name": "2ª equipación Betis 22/23",
     "team": "Betis",
     "price": 45,
+    "league":"laliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "betis_2.jpg"
   },
   {
@@ -74,6 +94,8 @@
     "name": "1ª equipación PSG 22/23",
     "team": "PSG",
     "price": 45,
+    "league":"ligue1",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "psg_1.jpg"
   },
   {
@@ -81,6 +103,8 @@
     "name": "2ª equipación PSG 22/23",
     "team": "PSG",
     "price": 45,
+    "league":"ligue1",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "psg_2.jpg"
   },
   {
@@ -88,6 +112,8 @@
     "name": "1ª equipación Tottenham 22/23",
     "team": "Tottenham",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "totteham_1.jpg"
   },
   {
@@ -95,6 +121,8 @@
     "name": "2ª equipación Tottenham 22/23",
     "team": "Tottenham",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "totteham_2.jpg"
   },
   {
@@ -102,6 +130,8 @@
     "name": "1ª equipación Manchester City 22/23",
     "team": "Manchester City",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "city_1.jpg"
   },
   {
@@ -109,6 +139,8 @@
     "name": "2ª equipación Manchester City 22/23",
     "team": "Manchester City",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "city_2.jpg"
   },
   {
@@ -116,6 +148,8 @@
     "name": "1ª equipación Chelsea 22/23",
     "team": "Chelsea",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "chelsea_1.jpg"
   },
   {
@@ -123,6 +157,8 @@
     "name": "2ª equipación Chelsea 22/23",
     "team": "Chelsea",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "chelsea_2.jpg"
   },
   {
@@ -130,6 +166,8 @@
     "name": "1ª equipación Liverpool 22/23",
     "team": "Liverpool",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "liverpool_1.jpg"
   },
   {
@@ -137,6 +175,8 @@
     "name": "2ª equipación Liverpool 22/23",
     "team": "Liverpool",
     "price": 45,
+    "league":"premier league",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "liverpool_2.jpg"
   },
   {
@@ -144,6 +184,8 @@
     "name": "1ª equipación Bayern Munich 22/23",
     "team": "Bayern Munich",
     "price": 45,
+    "league":"bundesliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "bayern_1.jpg"
   },
   {
@@ -151,6 +193,8 @@
     "name": "2ª equipación Bayern Munich 22/23",
     "team": "Bayern Munich",
     "price": 45,
+    "league":"bundesliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "bayern_2.jpg"
   },
   {
@@ -158,6 +202,8 @@
     "name": "1ª equipación Borrusia Dortmund 22/23",
     "team": "Borrusia Dortmund",
     "price": 45,
+    "league":"bundesliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "borrusia_1.jpg"
   },
   {
@@ -165,6 +211,8 @@
     "name": "2ª equipación Borrusia Dortmund 22/23",
     "team": "Borrusia Dortmund",
     "price": 45,
+    "league":"bundesliga",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "borrusia_2.jpg"
   },
   {
@@ -172,6 +220,8 @@
     "name": "1ª equipación Juventus 22/23",
     "team": "Juventus",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "juventus_1.jpg"
   },
   {
@@ -179,6 +229,8 @@
     "name": "2ª equipación Juventus 22/23",
     "team": "Juventus",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "juventus_2.jpg"
   },
   {
@@ -186,6 +238,8 @@
     "name": "1ª equipación Milan 22/23",
     "team": "Milan",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "milan_1.jpg"
   },
   {
@@ -193,6 +247,8 @@
     "name": "2ª equipación Milan 22/23",
     "team": "Milan",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "milan_2.jpg"
   },
   {
@@ -200,6 +256,8 @@
     "name": "1ª equipación Inter  Milan 22/23",
     "team": "Inter Milan",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "inter_1.jpg"
   },
   {
@@ -207,6 +265,8 @@
     "name": "2ª equipación Inter Milan 22/23",
     "team": "Inter Milan",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "inter_2.jpg"
   },
   {
@@ -214,6 +274,8 @@
     "name": "1ª equipación Fiorentina 22/23",
     "team": "Fiorentina",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "fiorentina_1.jpg"
   },
   {
@@ -221,6 +283,8 @@
     "name": "2ª equipación Fiorentina 22/23",
     "team": "Fiorentina",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "fiorentina_2.jpg"
   },
   {
@@ -228,6 +292,8 @@
     "name": "1ª equipación Roma 22/23",
     "team": "Roma",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "roma_1.jpg"
   },
   {
@@ -235,6 +301,8 @@
     "name": "2ª equipación Roma 22/23",
     "team": "Roma",
     "price": 45,
+    "league":"serie a",
+    "tallas":["S", "M", "L", "XL", "2XL","3XL"],
     "img": "roma_2.jpg"
   }
 ]

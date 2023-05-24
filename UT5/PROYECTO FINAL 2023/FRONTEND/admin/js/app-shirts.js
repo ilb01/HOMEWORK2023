@@ -1,31 +1,27 @@
-import ShirtsService from "./services/ShirtService.js";
-import { scrollToHash } from "./util.js";
+import ShirtService from "./services/ShirtService.js";
+import LeagueService from "./services/LeagueService.js";
 import Loading from "./components/Loading.js";
-const loadingObj = new Loading("modal-message", "Loading...");
+const loadingObj = new Loading("modal-message", "Loading...");import { scrollToHash } from "./util.js";
 const listContainer = document.querySelector('#list-container');
+const selectLeague = document.querySelector('#field-league');
 const btnInsert = document.querySelector('#btn-insert');
 const btnUpdate = document.querySelector('#btn-update');
 const btnCancel = document.querySelector('#btn-cancel');
 const messageAlert = document.querySelector('#message');
 const form = document.querySelector('#frm-item');
 const inputSearch = document.querySelector("#input-search");
-// const inputName = document.querySelector('#field-name');
-// const inputPrice = document.querySelector('#field-price');
-// const inputTeam = document.querySelector('#field-team');
 
 let currentShirt = null;
 
 const newShirt = () => {
-    const img = document.querySelector('#field-img').value;
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-
-    
-    const shirt = {img, name, team, price};
+    const league = document.querySelector("#field-league").value;
+    const shirt = {name, team, price, league };
     console.log("shirt", shirt);
     loadingObj.open();
-    ShirtsService.insert(shirt).then(data => {
+    ShirtService.insert(shirt).then(data => {
         console.log("message", data);
         renderShirts();
         form.reset();
@@ -36,12 +32,14 @@ const newShirt = () => {
 }
 
 const editShirt = (id) => {
-    ShirtsService.getItemById(id).then(data => {
+    ShirtService.getItemById(id).then(data => {
         currentShirt = data;
-        document.querySelector('#field-img').value = currentShirt.img;
-        document.querySelector('#field-name').value = currentShirt.name;
-        document.querySelector('#field-team').value = currentShirt.team;
-        document.querySelector('#field-price').value = currentShirt.price;
+        document.querySelector('#field-name').value = data.name;
+        document.querySelector('#field-team').value = data.team;
+        let option =document.querySelector(`#field-league option[value*='${data.league}']`);
+        if(option) option.selected=true;
+        document.querySelector('#field-price').value = data.price;
+        //country
     });
     btnInsert.classList.replace("d-inline", "d-none");
     btnUpdate.classList.replace("d-none", "d-inline");
@@ -51,13 +49,13 @@ const editShirt = (id) => {
 
 const updateShirt = () => {
     const id = currentShirt.id;
-    const img = document.querySelector('#field-img').value;
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-    const shirt = {id, img, name, team, price};
+    const league = document.querySelector("#field-league").value;
+    const shirt = {id, name, team, league, price };
 
-    ShirtsService.update(shirt).then(data => {
+    ShirtService.update(shirt).then(data => {
         currentShirt = null;
         messageAlert.textContent = data.message;
         btnCancel.classList.replace("d-inline", "d-none");
@@ -66,10 +64,11 @@ const updateShirt = () => {
         form.reset();
         renderShirts();
     });
+
 }
 
 const deleteShirt = (id) => {
-    ShirtsService.delete(id)
+    ShirtService.delete(id)
         .then(data => {
             messageAlert.textContent = data.message;
             //Change state
@@ -78,13 +77,13 @@ const deleteShirt = (id) => {
 }
 
 const populateShirts = (items) => {
-    Array.from(items).forEach((e, i) => {
+    items.forEach((e, i) => {
         listContainer.innerHTML += `
             <tr>
                 <td>${i + 1}</td>
-                <td>${e.img}</td>
                 <td>${e.name}</td>
                 <td>${e.team}</td>
+                <td>${e.league.name}</td>
                 <td>${e.price}</td>
                 <td class="text-center">
                     <button id="btn-delete-${e.id}" class="btn btn-danger btn-delete">Delete</button>
@@ -117,7 +116,7 @@ const renderShirts = (searchValue) => {
     listContainer.innerHTML = "";
     if (searchValue) {
         loadingObj.open();
-        ShirtsService.searchItemByName(searchValue)
+        ShirtService.searchItemByName(searchValue)
             .then(items => {
                 populateShirts(items);
             }).finally(() => {
@@ -125,7 +124,7 @@ const renderShirts = (searchValue) => {
             });
     } else {
         loadingObj.open();
-        ShirtsService.getItemsList()
+        ShirtService.getItemsList()
             .then(items => {
                 populateShirts(items);
             }).finally(() => {
@@ -136,22 +135,6 @@ const renderShirts = (searchValue) => {
 const validateForm = (event) => {
     event.preventDefault();
     // Validate each field
-    // if(!inputName.validity.valid) {
-    //     alert("Nombre no válido");
-    //     inputName.focus();
-    //     return false;
-    // }
-    // if(!inputTeam.validity.valid) {
-    //     alert("Equipo no válido");
-    //     inputTeam.focus();
-    //     return false;
-    // }
-    // if(!inputPrice.validity.valid) {
-    //     alert("Precio incorrecto");
-    //     inputPrice.focus();
-    //     return false;
-    // }
-    
     //Execute insert or update depends to button name 
     if (event.target.id === "btn-insert") {
         newShirt();
@@ -173,6 +156,23 @@ const searchShirt = (event) => {
     }
 }
 
+const renderLeaguesSelect = () => {
+    selectLeague.innerHTML = "";
+    loadingObj.open();
+    LeagueService.getItemsList()
+        .then(items => {
+            items.forEach(cat => {
+                selectLeague.innerHTML+=`
+                    <option value="${cat.id}">${cat.name}</option>
+                `;
+            });
+            
+        }).finally(() => {
+            loadingObj.close();
+        });
+    
+}
+
 function init() {
     renderShirts();
     btnCancel.addEventListener("click", function (e) {
@@ -189,6 +189,9 @@ function init() {
     btnUpdate.addEventListener("click", validateForm);
     // Reiniciamos el formulario por si hay datos precargados
     form.reset();
+
+    renderLeaguesSelect();
+
 }
 
 init();

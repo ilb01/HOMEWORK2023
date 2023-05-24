@@ -14,8 +14,12 @@ const shirtsSchema = new Schema({
         type: String,
         required:true,
     },
-    price:{
+    price: {
         type: Number,
+        required: true,
+    },
+    league: {
+        type: String,
         required: true,
     },
     img:{

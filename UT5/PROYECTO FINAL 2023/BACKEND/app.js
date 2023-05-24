@@ -4,7 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import shirtsRoutes from "./routes/shirtsRoutes.js";
-import usersRoutes from "./routes/usersRoutes.js"
+import usersRoutes from "./routes/usersRoutes.js";
+import leaguesRoutes from "./routes/leaguesRoutes.js";
 
 // Conexión BD
 mongoose.Promise = global.Promise;
@@ -23,6 +24,7 @@ app.use(cors());
 // Rutas
 app.use("/api", shirtsRoutes);
 app.use("/api", usersRoutes);
+app.use("/api", leaguesRoutes);
 
 // Evita crash
 process.on('uncaughtException', (error)  => {

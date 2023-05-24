@@ -53,9 +53,10 @@
 </head>
 
 <body>
+
     <div id="page-login" class="text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
         <section class="text-bg-dark w-25 border-2 pt-5" >
-            <h2>Login de Administrador</h2>
+            <h2>Login de usuario</h2>
             <form>
                 <div class="row">
                     <div class="col mb-3">
@@ -76,23 +77,23 @@
                 </section>
             </form>
             <section class="pt-3">
-                ¿No tienes usuario de Administrador? 
-                <a href="#" id="btn-show-register">Regístrate</a> 
+                ¿No tienes usuario de Administrador?
+                <a href="#" id="btn-show-register">Regístrate</a>
             </section>
             <section class="pt-3">
                 Cambiar de Usuario o Administrador
-                <a href="../login.html" id="btn-show-register">Cambiar</a> 
+                <a href="../login.html" id="btn-show-register">Cambiar</a>
             </section>
             <section class="pt-3">
                 Volver a la página principal
-                <a href="../index.html" id="btn-show-register">Volver atrás</a> 
+                <a href="../index.html" id="btn-show-register">Volver atrás</a>
             </section>
         </section>
     </div>
 
     <div id="page-register" class="d-none text-bg-dark min-vh-100 d-flex justify-content-center align-content-center">
         <section class="text-bg-dark w-25 border-2 pt-5" >
-            <h2>Registro de Administrador</h2>
+            <h2>Registro de usuario</h2>
             <form id="form-register">
                 <div class="row">
                     <div class="col mb-3">
@@ -131,16 +132,16 @@
                 </section>
             </form>
             <section class="pt-3">
-                ¿Ya tienes usuario de Administrador? 
-                <a href="#" id="btn-show-login">Login</a> 
+                ¿Ya tienes usuario?
+                <a href="#" id="btn-show-login">Login</a>
             </section>
             <section class="pt-3">
                 Cambiar de Usuario o Administrador
-                <a href="../login.html" id="btn-show-register">Cambiar</a> 
+                <a href="../login.html" id="btn-show-register">Cambiar</a>
             </section>
             <section class="pt-3">
                 Volver a la página principal
-                <a href="../index.html" id="btn-show-register">Volver atrás</a> 
+                <a href="../index.html" id="btn-show-register">Volver atrás</a>
             </section>
         </section>
     </div>
@@ -148,9 +149,9 @@
     <div id="page-admin" class="d-none">
         <header class="d-flex justify-content-between align-content-center p-2 text-bg-dark">
             <h1>Panel de administración</h1>
-            <div class="d-flex align-content-center justify-content-around sesión">
+            <div class="d-flex align-content-center justify-content-around">
                 <div id="user-name"></div> 
-                <button id="btn-logout" class="btn btn-outline-danger p-1">CERRAR SESIÓN</button>
+                <button id="btn-logout" class="btn btn-outline-danger p-1">logout</button>
             </div>
         </header>
         <main>
@@ -161,13 +162,19 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active text-white"  data-link="SHIRT">Camisetas</a>
+                        <a href="#" class="nav-link active" aria-current="page" data-link="LEAGUE">
+                            Ligas
+                        </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" data-link="SHIRT">Camisetas</a>
+                    </li>
+    
                 </ul>
                 <hr>
             </aside>
             <section class="page">
-                <iframe id="current-page" src="man-shirts.html" width="100%" height="100%">
+                <iframe id="current-page" src="man-leagues.html" width="100%" height="100%">
                 </iframe>
             </section>
         </main>
