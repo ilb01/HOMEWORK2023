@@ -5,12 +5,14 @@ const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
 const listaCamiseta = document.querySelector("#lista-camiseta");
 const orderFilterTag = document.querySelector('#orderFilter');
 const shirtContent = document.querySelector(".list-content");
+const btnBuscador = document.querySelector('#input-search');
 
 let shirtsSearch = [];
 let articulosCarrito = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarEventListeners();
     cargarCamiseta();
+    btnBuscador.addEventListener("keyup", searchShirts);
     // CLICK DE ORDENAR (Clasificar por nombre o por precio)
     orderFilterTag.addEventListener("change", function () {
         sortCamiseta();
