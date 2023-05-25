@@ -10,10 +10,6 @@ const pageAdmin = document.querySelector('#page-admin');
 const userName = document.querySelector('#user-name');
 let userData = null;
 
-const links ={
-    "SHIRT": "man-shirts.html"
-}
-
 function init() {
     // Botón login
     btnLogin.addEventListener("click", function(){
@@ -22,10 +18,9 @@ function init() {
         const params={email, password};
         UserService.login(params).then(data=>{
             if (!data.error){
-                pageLogin.classList.replace("d-flex", "d-none");
-                pageAdmin.classList.replace("d-none", "d-block");
                 userName.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
+                window.location="../index.html";
 
             }else{
                 alert(data.message);
@@ -42,10 +37,9 @@ function init() {
         const params={name, surname, email, password};
         UserService.register(params).then(data=>{
             if (!data.error){
-                pageRegister.classList.replace("d-flex", "d-none");
-                pageAdmin.classList.replace("d-none", "d-block");
                 userName.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
+                window.location="../index.html";
             }else{
                 alert(data.message);
             }
@@ -78,7 +72,7 @@ function init() {
         e.addEventListener("click", function(event) {
             document.querySelector('.nav-link.active').classList.replace("active", "text-white");
             this.classList.replace("text-white", "active");
-            document.querySelector('#current-page').src=links[this.dataset.link];
+            
         })
     });
 }

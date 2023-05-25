@@ -11,6 +11,7 @@ const pageRegister = document.querySelector('#page-register');
 const pageAdmin = document.querySelector('#page-admin');
 
 const userName = document.querySelector('#user-name');
+const userName2 = document.querySelector('#user-name2');
 let userData = null;
 
 const links ={
@@ -29,6 +30,7 @@ function init() {
                 pageLogin.classList.replace("d-flex", "d-none");
                 pageAdmin.classList.replace("d-none", "d-block");
                 userName.innerHTML=data.user.name +" " + data.user.surname;
+                userName2.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
 
             }else{
@@ -49,6 +51,7 @@ function init() {
                 pageRegister.classList.replace("d-flex", "d-none");
                 pageAdmin.classList.replace("d-none", "d-block");
                 userName.innerHTML=data.user.name +" " + data.user.surname;
+                userName2.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
             }else{
                 alert(data.message);

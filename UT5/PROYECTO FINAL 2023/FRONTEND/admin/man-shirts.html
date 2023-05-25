@@ -30,6 +30,7 @@
                         <th scope="col">Equipo</th>
                         <th scope="col">Liga</th>
                         <th scope="col">Nombre de Liga(filtrar)</th>
+                        <th scope="col">Tallas</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -47,11 +48,11 @@
             <div class="row">
                 <div class="col mb-3">
                     <label class="form-label">Imagen</label>
-                    <input id="field-img" type="text" class="form-control" placeholder="" required maxlength="20"/>
+                    <input id="field-img" type="text" class="form-control" placeholder="imagen.jpg" required maxlength="20"/>
                 </div>
                 <div class="col mb-3">
                     <label class="form-label">Nombre</label>
-                    <input id="field-name" type="text" class="form-control" placeholder="" required />
+                    <input id="field-name" type="text" class="form-control" value="1ª o 2ª equipación" required />
                 </div>
                 <div class="col mb-3">
                     <label class="form-label">Equipo</label>
@@ -68,6 +69,12 @@
                 <div class="col mb-3">
                     <label class="form-label">Nombre de Liga</label>
                     <input id="field-league_name" type="text" class="form-control" placeholder="NOMBRE PARA FILTRAR" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label">Tallas</label>
+                    <input id="field-sizes" type="text" class="form-control" value="S, M, L, XL, 2XL,3XL" required />
                 </div>
             </div>
             <div class="row">

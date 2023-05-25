@@ -4,10 +4,9 @@ const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
 const listaCamiseta = document.querySelector("#lista-camiseta");
 const orderFilterTag = document.querySelector('#orderFilter');
-const shirtContent = document.querySelector(".list-content");
+const shirtContent = document.querySelector("#list-container");
 const btnBuscador = document.querySelector('#input-search');
 
-let shirtsSearch = [];
 let articulosCarrito = [];
 document.addEventListener("DOMContentLoaded", () => {
     cargarEventListeners();
@@ -115,6 +114,14 @@ function pintarCamiseta(listaCamiseta) {
     });
 }
 
+{/* <select class="tallas">
+                    <option value="${camiseta.tallas[0]}">${camiseta.tallas[0]}</option>
+                    <option value="${camiseta.tallas[1]}">${camiseta.tallas[1]}</option>
+                    <option value="${camiseta.tallas[2]}">${camiseta.tallas[2]}</option>
+                    <option value="${camiseta.tallas[3]}">${camiseta.tallas[3]}</option>
+                    <option value="${camiseta.tallas[4]}">${camiseta.tallas[4]}</option>
+                    <option value="${camiseta.tallas[5]}">${camiseta.tallas[5]}</option>
+                </select> */}
 // GRID 
 const changeView = (number) => {
     if (number === 4) {
