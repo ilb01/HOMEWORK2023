@@ -98,13 +98,13 @@ function pintarCamiseta(listaCamiseta) {
             <div class="card-body">
                 <h4 class="card-title">${camiseta.name}</h4>
                 <p class="card-text team">${camiseta.team}.</p>
-                <select class="tallas">
-                    <option value="${camiseta.tallas[0]}">${camiseta.tallas[0]}</option>
-                    <option value="${camiseta.tallas[1]}">${camiseta.tallas[1]}</option>
-                    <option value="${camiseta.tallas[2]}">${camiseta.tallas[2]}</option>
-                    <option value="${camiseta.tallas[3]}">${camiseta.tallas[3]}</option>
-                    <option value="${camiseta.tallas[4]}">${camiseta.tallas[4]}</option>
-                    <option value="${camiseta.tallas[5]}">${camiseta.tallas[5]}</option>
+                <select class="sizes">
+                    <option value="${camiseta.sizes[0]}">${camiseta.sizes[0]}</option>
+                    <option value="${camiseta.sizes[1]}">${camiseta.sizes[1]}</option>
+                    <option value="${camiseta.sizes[2]}">${camiseta.sizes[2]}</option>
+                    <option value="${camiseta.sizes[3]}">${camiseta.sizes[3]}</option>
+                    <option value="${camiseta.sizes[4]}">${camiseta.sizes[4]}</option>
+                    <option value="${camiseta.sizes[5]}">${camiseta.sizes[5]}</option>
                 </select>
                 <p class="card-text price">${camiseta.price}€</p>
                 <a href="#" class="boton-item agregar-carrito" data-id="${camiseta.id}">Agregar Al Carrito</a>
@@ -113,15 +113,6 @@ function pintarCamiseta(listaCamiseta) {
         shirtContent.innerHTML += htmlCamiseta;
     });
 }
-
-{/* <select class="tallas">
-                    <option value="${camiseta.tallas[0]}">${camiseta.tallas[0]}</option>
-                    <option value="${camiseta.tallas[1]}">${camiseta.tallas[1]}</option>
-                    <option value="${camiseta.tallas[2]}">${camiseta.tallas[2]}</option>
-                    <option value="${camiseta.tallas[3]}">${camiseta.tallas[3]}</option>
-                    <option value="${camiseta.tallas[4]}">${camiseta.tallas[4]}</option>
-                    <option value="${camiseta.tallas[5]}">${camiseta.tallas[5]}</option>
-                </select> */}
 // GRID 
 const changeView = (number) => {
     if (number === 4) {
@@ -152,7 +143,7 @@ function agregarCamiseta(e) {
         name: camiseta.querySelector("h4").textContent,
         team: camiseta.querySelector(".team").textContent,
         price: camiseta.querySelector(".price").textContent,
-        tallas: camiseta.querySelector(".tallas").value,
+        sizes: camiseta.querySelector(".sizes").value,
         id: camiseta.querySelector("a").getAttribute("data-id"),
         cantidad: 1,
     };
@@ -202,7 +193,7 @@ function generarCarritoHTML() {
 
     // Recorre el carrito y genera el HTML para cada item
     articulosCarrito.forEach((camiseta) => {
-        const { imagen, name, team, price, cantidad, tallas, id } = camiseta; // Usamos destructuring
+        const { imagen, name, team, price, cantidad, sizes, id } = camiseta; // Usamos destructuring
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
@@ -210,7 +201,7 @@ function generarCarritoHTML() {
             </td>
             <td>${name}</td>
             <td>${team}</td>
-            <td>${tallas}</td>
+            <td>${sizes}</td>
             <td>${price}</td>
             <td>${cantidad}</td>
             <td>

@@ -18,10 +18,10 @@ const newShirt = () => {
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-    const tallas = document.querySelector('#field-sizes').value;
+    const sizes = document.querySelector('#field-sizes').value;
     const league = document.querySelector("#field-league").value;
     const league_name = document.querySelector("#field-league_name").value;
-    const shirt = {img, name, team, price, tallas, league, league_name};
+    const shirt = {img, name, team, price, sizes, league, league_name};
     console.log("shirt", shirt);
     loadingObj.open();
     ShirtService.insert(shirt).then(data => {
@@ -40,7 +40,7 @@ const editShirt = (id) => {
         document.querySelector('#field-img').value = data.img;
         document.querySelector('#field-name').value = data.name;
         document.querySelector('#field-team').value = data.team;
-        document.querySelector('#field-sizes').value = data.tallas;
+        document.querySelector('#field-sizes').value = data.sizes;
         let option =document.querySelector(`#field-league option[value*='${data.league}']`);
         if(option) option.selected=true;
         document.querySelector("#field-league_name").value = data.league_name;
@@ -59,11 +59,11 @@ const updateShirt = () => {
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-    const tallas = document.querySelector('#field-sizes').value;
+    const sizes = document.querySelector('#field-sizes').value;
 
     const league = document.querySelector("#field-league").value;
     const league_name = document.querySelector("#field-league_name").value;
-    const shirt = {id, img, name, team, league, league_name, price, tallas};
+    const shirt = {id, img, name, team, league, league_name, price, sizes};
 
     ShirtService.update(shirt).then(data => {
         currentShirt = null;
@@ -96,7 +96,7 @@ const populateShirts = (items) => {
                 <td>${e.team}</td>
                 <td>${e.league.name}</td>
                 <td>${e.league_name}</td>
-                <td>${e.tallas}</td>
+                <td>${e.sizes}</td>
                 <td>${e.price}</td>
                 <td class="text-center">
                     <button id="btn-delete-${e.id}" class="btn btn-danger btn-delete">Delete</button>

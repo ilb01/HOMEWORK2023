@@ -32,6 +32,7 @@ function init() {
                 userName.innerHTML=data.user.name +" " + data.user.surname;
                 userName2.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
+                localStorage.getItem("user_name",userName);
 
             }else{
                 alert(data.message);
@@ -53,6 +54,7 @@ function init() {
                 userName.innerHTML=data.user.name +" " + data.user.surname;
                 userName2.innerHTML=data.user.name +" " + data.user.surname;
                 userData=data.user;
+                localStorage.getItem("user_name",userName);
             }else{
                 alert(data.message);
             }
