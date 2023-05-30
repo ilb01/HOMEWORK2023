@@ -25,6 +25,10 @@ const shirtsSchema = new Schema({
         type: String,
         required:true,
     },
+    sizes : {
+        type:Array,
+        required:true
+    },
     img:{
         type: String,
     }

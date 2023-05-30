@@ -28,6 +28,7 @@ const searchShirts = () => {
 
     pintarCamiseta(resultado);
 };
+
 // FUNCIÓN DE ORDENAR (Clasificar por equipo)
 const sortCamiseta = () => {
     let index = orderFilterTag.selectedIndex;

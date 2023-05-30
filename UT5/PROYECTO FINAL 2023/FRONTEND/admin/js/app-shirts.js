@@ -18,7 +18,7 @@ const newShirt = () => {
     const name = document.querySelector('#field-name').value;
     const team = document.querySelector('#field-team').value;
     const price = document.querySelector('#field-price').value;
-    const sizes = document.querySelector('#field-sizes').value;
+    const sizes = document.querySelector('#field-sizes').value.split(",");
     const league = document.querySelector("#field-league").value;
     const league_name = document.querySelector("#field-league_name").value;
     const shirt = {img, name, team, price, sizes, league, league_name};
