@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batalla Naval</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="player1Canvas" width="550" height="550"></canvas>
+    <canvas id="player2Canvas" width="550" height="550"></canvas>
+
+    <div id="message"></div>
+    <textarea id="targetPosition" rows="4" cols="50" disabled></textarea>
+    <button onclick="resetGrid()">Resetear Cuadrícula</button>
+
+    <script>
+        var player1Canvas = document.getElementById('player1Canvas');
+        var player1Context = player1Canvas.getContext('2d');
+
+        var player2Canvas = document.getElementById('player2Canvas');
+        var player2Context = player2Canvas.getContext('2d');
+
+        var cellSize = 50;
+
+        var player1Board = createBoard();
+        var player2Board = createBoard();
+
+        var currentPlayer = 1;
+
+        var messageElement = document.getElementById('message');
+        var targetPositionElement = document.getElementById('targetPosition');
+
+        function createBoard() {
+            var board = [];
+            for (var row = 0; row < 10; row++) {
+                board[row] = [];
+                for (var col = 0; col < 10; col++) {
+                    board[row][col] = {
+                        hit: false,
+                        ship: false
+                    };
+                }
+            }
+            return board;
+        }
+
+        function drawBoard(context, board) {
+            context.clearRect(0, 0, player1Canvas.width, player1Canvas.height);
+
+            // Dibuja las casillas del tablero y las etiquetas
+            for (var row = 0; row < 10; row++) {
+                for (var col = 0; col < 10; col++) {
+                    var x = col * cellSize;
+                    var y = row * cellSize;
+
+                    if (board[row][col].hit) {
+                        context.fillStyle = 'red';
+                        context.fillRect(x, y, cellSize, cellSize);
+                    }
+
+                    context.strokeRect(x, y, cellSize, cellSize);
+                }
+
+                // Etiqueta las filas
+                context.fillStyle = 'black';
+                context.fillText(row + 1, 10, (row + 0.5) * cellSize + 5);
+            }
+
+            // Etiqueta las columnas
+            context.fillStyle = 'black';
+            var letters = 'ABCDEFGHIJ';
+            for (var i = 0; i < 10; i++) {
+                context.fillText(letters[i], (i + 0.5) * cellSize - 5, 20);
+            }
+        }
+
+        function placeShip(board, row, col) {
+            if (row < 0 || row >= 10 || col < 0 || col >= 10) {
+                return;
+            }
+            board[row][col].ship = true;
+        }
+
+        function generateRandomShips(board) {
+            var shipSizes = [5, 4, 3, 3, 2];
+
+            for (var i = 0; i < shipSizes.length; i++) {
+                var shipSize = shipSizes[i];
+                var horizontal = Math.random() < 0.5;
+
+                var validPlacement = false;
+                while (!validPlacement) {
+                    var row = Math.floor(Math.random() * 10);
+                    var col = Math.floor(Math.random() * 10);
+
+                    validPlacement = true;
+                    for (var j = 0; j < shipSize; j++) {
+                        var shipRow = row;
+                        var shipCol = col;
+                        if (horizontal) {
+                            shipCol += j;
+                        } else {
+                            shipRow += j;
+                        }
+
+                        if (shipRow < 0 || shipRow >= 10 || shipCol < 0 || shipCol >= 10 || board[shipRow][shipCol].ship) {
+                            validPlacement = false;
+                            break;
+                        }
+                    }
+                }
+
+                for (var j = 0; j < shipSize; j++) {
+                    var shipRow = row;
+                    var shipCol = col;
+                    if (horizontal) {
+                        shipCol += j;
+                    } else {
+                        shipRow += j;
+                    }
+                    placeShip(board, shipRow, shipCol);
+                }
+            }
+        }
+
+        function handleAttack(event, context, board) {
+            if (currentPlayer === 1) {
+                context = player2Context;
+                board = player2Board;
+            } else {
+                context = player1Context;
+                board = player1Board;
+            }
+
+            var rect = event.target.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+
+            var col = Math.floor(x / cellSize);
+            var row = Math.floor(y / cellSize);
+
+            if (board[row][col].hit) {
+                return;
+            }
+
+            board[row][col].hit = true;
+            drawBoard(context, board);
+
+            var currentPlayerText = currentPlayer === 1 ? 'Jugador 1' : 'Jugador 2';
+            var positionText = getLetterFromNumber(col) + (row + 1);
+
+            if (board[row][col].ship) {
+                targetPositionElement.value = currentPlayerText + ' ha acertado en la posición ' + positionText + '!';
+            } else {
+                targetPositionElement.value = currentPlayerText + ' ha fallado en la posición ' + positionText + '.';
+            }
+
+            if (currentPlayer === 1) {
+                currentPlayer = 2;
+                messageElement.textContent = 'Jugador 2: Es tu turno';
+            } else {
+                currentPlayer = 1;
+                messageElement.textContent = 'Jugador 1: Es tu turno';
+            }
+        }
+
+        function getLetterFromNumber(number) {
+            return String.fromCharCode(number + 65);
+        }
+
+        function resetGrid() {
+            player1Board = createBoard();
+            player2Board = createBoard();
+
+            generateRandomShips(player1Board);
+            generateRandomShips(player2Board);
+
+            drawBoard(player1Context, player1Board);
+            drawBoard(player2Context, player2Board);
+
+            currentPlayer = 1;
+            messageElement.textContent = 'Jugador 1: Es tu turno';
+            targetPositionElement.value = '';
+        }
+
+        player1Canvas.addEventListener('click', function (event) {
+            handleAttack(event, player1Context, player1Board);
+        });
+
+        player2Canvas.addEventListener('click', function (event) {
+            handleAttack(event, player2Context, player2Board);
+        });
+
+        generateRandomShips(player1Board);
+        generateRandomShips(player2Board);
+
+        drawBoard(player1Context, player1Board);
+        drawBoard(player2Context, player2Board);
+
+        messageElement.textContent = 'Jugador 1: Es tu turno';
+    </script>
+</body>
+</html>

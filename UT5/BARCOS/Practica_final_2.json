@@ -1,0 +1,102 @@
+{
+  "barcos": [
+    {
+      "nombre": "Portaaviones",
+      "tamaño": 5,
+      "posicion": [
+        {
+          "fila": 7,
+          "columna": 1
+        },
+        {
+          "fila": 7,
+          "columna": 2
+        },
+        {
+          "fila": 7,
+          "columna": 3
+        },
+        {
+          "fila": 7,
+          "columna": 4
+        },
+        {
+          "fila": 7,
+          "columna": 5
+        }
+      ]
+    },
+    {
+      "nombre": "Acorazado",
+      "tamaño": 4,
+      "posicion": [
+        {
+          "fila": 9,
+          "columna": 5
+        },
+        {
+          "fila": 6,
+          "columna": 5
+        },
+        {
+          "fila": 7,
+          "columna": 5
+        },
+        {
+          "fila": 8,
+          "columna": 5
+        }
+      ]
+    },
+    {
+      "nombre": "Destructor",
+      "tamaño": 1,
+      "posicion": [
+        {
+          "fila": 4,
+          "columna": 1
+        },
+        {
+          "fila": 5,
+          "columna": 1
+        },
+        {
+          "fila": 6,
+          "columna": 1
+        }
+      ]
+    },
+    {
+      "nombre": "Submarino",
+      "tamaño": 1,
+      "posicion": [
+        {
+          "fila": 7,
+          "columna": 1
+        },
+        {
+          "fila": 7,
+          "columna": 4
+        },
+        {
+          "fila": 7,
+          "columna": 5
+        }
+      ]
+    },
+    {
+      "nombre": "Lancha",
+      "tamaño": 2,
+      "posicion": [
+        {
+          "fila": 9,
+          "columna": 6
+        },
+        {
+          "fila": 9,
+          "columna": 7
+        }
+      ]
+    }
+  ]
+}
